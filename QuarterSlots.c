@@ -25,7 +25,7 @@ return balance;
 printf("Reel stopped on number: %d", rand_num);
 }
 
-/*float print_balance(float balance)
+float print_balance(float balance)
 {
 printf("Your ending balance is %f", balance);
 }
@@ -35,7 +35,7 @@ printf("Your ending balance is %f", balance);
 
 int main(void)
 {
-    printf("Welcome to the Betting Game!\n")
+    printf("Welcome to the Betting Game!\n");
     
     //make random number
     srand(time(NULL));
