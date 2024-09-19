@@ -19,6 +19,7 @@ int quarters_left(float balance)
 return balance;
 }
 
+//srand(time(NULL));
 /*int num_is( int rand_num)
 {
 printf("Reel stopped on number: %d", rand_num);
@@ -30,13 +31,15 @@ printf("Your ending balance is %f", balance);
 }
 */
 //float numdivfour = dollars_left(20);*/
-
+//int rand_num = rand() % 101;
 
 int main(void)
 {
     //make random number
-    int rand_num = (rand() % 100) + 1;
-    printf("your number is : %d \n", rand_num);
+    srand(time(NULL));
+    //srand(time(NULL));
+    //int rand_num = (rand() % 100) + 1;
+    printf("your number is : %d \n", rand() % 101);
     //char num_is( int rand_num)
     //    char printf("Reel stopped on number: %d" rand_num);
 
@@ -60,8 +63,10 @@ int main(void)
     while (balance > 0)
     {
         // prompt player to enter the number of quarters to bet
+        printf("your balance in quarters is: %.2f \n", balance);
+        printf("your remaining dollars: %.2f \n", dollars_left(balance));
+        
         printf("how much you wanna bet?:");
-        //input bet in int type(d for digit), & address bet previosly defined
         scanf("%d", &bet);
 
         // if bet IS 0 cash out 
@@ -90,7 +95,7 @@ int main(void)
             }
     
         //if random number is less than 50 player losses the bet
-        else if (rand_num < 50)
+        else if (rand() % 101 < 50)
             {
             //lost your bet
             balance -= bet ;
@@ -99,7 +104,7 @@ int main(void)
             }
 
         //get your quarters back
-        else if (rand_num >= 50 && rand_num <= 74)
+        else if (rand() % 101 >= 50 && rand() % 101 <= 74)
             {
             balance;
             printf("your balance in quarters is: %.2f \n", balance);
@@ -107,7 +112,7 @@ int main(void)
             }
 
         //double the bet/ winnings
-        else if (rand_num >= 74 && rand_num <= 94)
+        else if (rand() % 101 >= 74 && rand() % 101 <= 94)
             {
             balance += bet * 2;
             printf("your balance in quarters is: %.2f \n", balance);
@@ -115,7 +120,7 @@ int main(void)
             }
 
         //jackpot win the bet/winnings
-        else if (rand_num >=95 && rand_num <= 100)
+        else if (rand() % 101 >=95 && rand() % 101 <= 100)
             {
             balance += bet * 3;
             printf("You win \n");
