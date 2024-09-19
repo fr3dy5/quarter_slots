@@ -83,21 +83,21 @@ int main(void)
             {
             //lost your bet
             (balance -= bet );
-            printf("your balance is: %s", num_is);
+            printf("your balance is: %p", (void*)num_is);
             }
 
         //get your quarters back
         if (rand_num >= 50 && rand_num <= 74);
             {
             balance;
-            printf("your balance is: %s", num_is);
+            printf("your balance is: %p", (void*)num_is);
             }
 
         //double the bet/ winnings
         if (rand_num >= 74 && rand_num <= 94);
             {
             (balance += bet * 2);
-            printf("your balance is: %s", num_is);
+            printf("your balance is: %p", (void*)num_is);
             }
 
         //jackpot win the bet/winnings
@@ -105,7 +105,7 @@ int main(void)
             {
             (balance += bet * 3);
             printf("You win");
-            printf("your balance is: %s", num_is);
+            printf("your balance is: %p", (void*)num_is);
             }
 
         //balance is 0 display you lose
