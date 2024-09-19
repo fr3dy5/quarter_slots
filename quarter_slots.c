@@ -129,9 +129,11 @@ int main(void)
             }
 
         //balance is 0 display you lose
-        if (balance == 0)
+        else (balance == 0);
             {
             printf("Game Over");
+            printf("your balance in quarters is: %.2f \n", balance);
+            printf("your remaining dollars: %.2f \n", dollars_left(balance));
             //end game
             break;
             }
