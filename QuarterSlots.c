@@ -41,7 +41,7 @@ int main(void)
     srand(time(NULL));
     //srand(time(NULL));
     //int rand_num = (rand() % 100) + 1;
-    printf("your number is : %d \n", rand() % 101);
+    printf("Reel stopped on the number: %d \n", rand() % 101);
     //char num_is( int rand_num)
     //    char printf("Reel stopped on number: %d" rand_num);
 
@@ -65,18 +65,18 @@ int main(void)
     while (balance > 0)
     {
         // prompt player to enter the number of quarters to bet
-        printf("your balance in quarters is: %.2f \n", balance);
-        printf("your remaining dollars: %.2f \n", dollars_left(balance));
+        printf("You have %.2f quarters.\n", balance);
+        printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
         
-        printf("how much you wanna bet?:");
+        printf("Enter the number of quarters to bet (or 0 to cash out): \n");
         scanf("%d", &bet);
 
         // if bet IS 0 cash out 
         if (bet == 0)
             {
-            printf("thanks for playing \n");
-            printf("your balance in quarters is: %.2f \n", balance);
-            printf("your remaining dollars: %.2f \n", dollars_left(balance));
+            printf("Cashing out.\n");
+            printf("You have %.2f quarters.\n", balance);
+            printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             //cashing out, end game
             break;
             }
@@ -92,7 +92,7 @@ int main(void)
         //if bet is more than balance and less than zero (validate players valid bet input)
         else if (bet > balance || bet < 0)
             {
-            printf("invalid bet try againg");
+            printf("Invalid bet. Please enter a valid number of quarters.\n");
             continue;
             }
     
@@ -101,41 +101,43 @@ int main(void)
             {
             //lost your bet
             balance -= bet ;
-            printf("your balance in quarters is: %.2f \n", balance);
-            printf("your remaining dollars: %.2f \n", dollars_left(balance));
+            printf("You have %.2f quarters.\n", balance);
+            printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             }
 
         //get your quarters back
         else if (rand() % 101 >= 50 && rand() % 101 <= 74)
             {
-            balance;
-            printf("your balance in quarters is: %.2f \n", balance);
-            printf("your remaining dollars: %.2f \n", dollars_left(balance));
+            //balance;
+            printf("You get your money back!\n");
+            printf("You have %.2f quarters.\n", balance);
+            printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             }
 
         //double the bet/ winnings
         else if (rand() % 101 >= 74 && rand() % 101 <= 94)
             {
             balance += bet * 2;
-            printf("your balance in quarters is: %.2f \n", balance);
-            printf("your remaining dollars: %.2f \n", dollars_left(balance));
+            printf("You double your money!\n");
+            printf("You have %.2f quarters.\n", balance);
+            printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             }
 
         //jackpot win the bet/winnings
         else if (rand() % 101 >=95 && rand() % 101 <= 100)
             {
             balance += bet * 3;
-            printf("You win \n");
-            printf("your balance in quarters is: %.2f \n", balance);
-            printf("your remaining dollars: %.2f \n", dollars_left(balance));
+            printf("Jackpot! You triple your money!\n");
+            printf("You have %.2f quarters.\n", balance);
+            printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             }
 
         //balance is 0 display you lose
         else
             {
-            printf("Game Over");
-            printf("your balance in quarters is: %.2f \n", balance);
-            printf("your remaining dollars: %.2f \n", dollars_left(balance));
+            printf("You lose!");
+            printf("You have %.2f quarters.\n", balance);
+            printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             //end game
             break;
             }
