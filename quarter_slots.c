@@ -35,6 +35,8 @@ printf("Your ending balance is %f", balance);
 
 int main(void)
 {
+    printf("Welcome to the Betting Game!\n")
+    
     //make random number
     srand(time(NULL));
     //srand(time(NULL));
