@@ -3,40 +3,40 @@
 #include <time.h>  
 
 
-    //in quarters / 20 dollars
-    float balance = 80;
-    int bet = 0;
+//in quarters / 20 dollars
+float balance = 80;
+int bet = 0;
 
-    //display dollar amount left
-    float dollars_left( float balance)
-    {
-        return (float)balance / 4;
-    }
+//display dollar amount left
+float dollars_left(float balance)
+{
+return (float)balance / 4;
+}
 
-    //display quarters left
-    int quarters_left(float balance)
-        {
-        return balance;
-        }
+//display quarters left
+int quarters_left(float balance)
+{
+return balance;
+}
 
-    char num_is( int rand_num)
-        {
-        printf("Reel stopped on number: %d", rand_num);
-        }
+/*int num_is( int rand_num)
+{
+printf("Reel stopped on number: %d", rand_num);
+}
 
-    float print_balance(float balance)
-        {
-        printf("Your ending balance is %f", balance);
-        }
-
-    //float numdivfour = dollars_left(20);
+/*float print_balance(float balance)
+{
+printf("Your ending balance is %f", balance);
+}
+*/
+//float numdivfour = dollars_left(20);*/
 
 
 int main(void)
 {
     //make random number
     int rand_num = (rand() % 100) + 1;
-
+    printf("your number is : %d \n", rand_num);
     //char num_is( int rand_num)
     //    char printf("Reel stopped on number: %d" rand_num);
 
@@ -67,49 +67,64 @@ int main(void)
         // if bet IS 0 cash out 
         if (bet == 0)
             {
+            printf("thanks for playing \n");
+            printf("your balance in quarters is: %.2f \n", balance);
+            printf("your remaining dollars: %.2f \n", dollars_left(balance));
             //cashing out, end game
             break;
             }
-        
-        //if bet is more than balance and less than zero (validate players valid bet input)
-        if (bet > balance || bet < 0)
+
+        //balance is 0 display you lose
+        /*if (balance == 0);
             {
-            //??loop it back to the start
+           printf("Game Over");
+            //end game
+            break;
+            }
+        */
+        //if bet is more than balance and less than zero (validate players valid bet input)
+        else if (bet > balance || bet < 0)
+            {
+            printf("invalid bet try againg");
             continue;
             }
     
         //if random number is less than 50 player losses the bet
-        if (rand_num < 50);
+        else if (rand_num < 50)
             {
             //lost your bet
-            (balance -= bet );
-            printf("your balance is: %p", (void*)num_is);
+            balance -= bet ;
+            printf("your balance in quarters is: %.2f \n", balance);
+            printf("your remaining dollars: %.2f \n", dollars_left(balance));
             }
 
         //get your quarters back
-        if (rand_num >= 50 && rand_num <= 74);
+        else if (rand_num >= 50 && rand_num <= 74)
             {
             balance;
-            printf("your balance is: %p", (void*)num_is);
+            printf("your balance in quarters is: %.2f \n", balance);
+            printf("your remaining dollars: %.2f \n", dollars_left(balance));
             }
 
         //double the bet/ winnings
-        if (rand_num >= 74 && rand_num <= 94);
+        else if (rand_num >= 74 && rand_num <= 94)
             {
-            (balance += bet * 2);
-            printf("your balance is: %p", (void*)num_is);
+            balance += bet * 2;
+            printf("your balance in quarters is: %.2f \n", balance);
+            printf("your remaining dollars: %.2f \n", dollars_left(balance));
             }
 
         //jackpot win the bet/winnings
-        if (rand_num >=95 && rand_num <= 100);
+        else if (rand_num >=95 && rand_num <= 100)
             {
-            (balance += bet * 3);
-            printf("You win");
-            printf("your balance is: %p", (void*)num_is);
+            balance += bet * 3;
+            printf("You win \n");
+            printf("your balance in quarters is: %.2f \n", balance);
+            printf("your remaining dollars: %.2f \n", dollars_left(balance));
             }
 
         //balance is 0 display you lose
-        if(balance == 0);
+        if (balance == 0)
             {
             printf("Game Over");
             //end game
