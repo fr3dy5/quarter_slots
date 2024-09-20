@@ -16,8 +16,8 @@ return (float)balance / 4;
 int main(void)
 {
     printf("Welcome to the Betting Game!\n");
-    printf("You have $20 dollars worth of quarters.\n");
-    printf("You have 80 quarters($20.00).\n");
+    printf("You have $20 worth of quarters.\n");
+    printf("You have 80 quarters ($20.00).\n");
 
     //make random number
     srand(time(NULL));
@@ -28,13 +28,12 @@ int main(void)
         // prompt player to enter the number of quarters to bet
         printf("Enter the number of quarters to bet (or 0 to cash out): \n");
         scanf("%d", &bet);
-        printf("Reel stopped on the number: %d \n", rand() % 101);
+        printf("Reel stopped on the number: %d \n", (rand() % 100) + 1);
 
         // if bet IS 0 cash out 
         if (bet == 0)
             {
-            printf("Cashing out.\n");
-            printf("You ended with $%.2f\n", dollars_left(balance));
+            printf("Cashing out. You ended with $%.2f\n", dollars_left(balance));
             //cashing out, end game
             break;
             }
@@ -47,14 +46,14 @@ int main(void)
             }
 
         //get your quarters back
-        else if ((rand() % 100) + 1 >= 50 && rand() % 101 <= 74)
+        else if ((rand() % 100) + 1 >= 50 && (rand() % 100) + 1 <= 74)
             {
             printf("You get your money back!\n");
             printf("You have %.2f quarters.\n", balance);
             }
 
         //double the bet/ winnings
-        else if ((rand() % 100) + 1 >= 74 && rand() % 101 <= 94)
+        else if ((rand() % 100) + 1 >= 74 && (rand() % 100) + 1 <= 94)
             {
             balance += bet * 2;
             printf("You double your money!\n");
@@ -62,7 +61,7 @@ int main(void)
             }
 
         //jackpot win the bet/winnings
-        else if ((rand() % 100) + 1 >=95 && rand() % 101 <= 100)
+        else if ((rand() % 100) + 1 >=95 && (rand() % 100) + 1 <= 100)
             {
             balance += bet * 3;
             printf("Jackpot! You triple your money!\n");
