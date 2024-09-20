@@ -13,11 +13,12 @@ float dollars_left(float balance)
 return (float)balance / 4;
 }
 
+/*
 //display quarters left
 int quarters_left(float balance)
 {
 return balance;
-}
+}*/
 
 //srand(time(NULL));
 /*int num_is( int rand_num)
@@ -110,7 +111,7 @@ int main(void)
             }*/
 
         //get your quarters back
-        else if (rand() % 101 >= 50 && rand() % 101 <= 74)
+        else if ((rand() % 100) + 1 >= 50 && rand() % 101 <= 74)
             {
             //balance;
             //printf("Reel stopped on the number: %d \n", rand() % 101);
@@ -120,7 +121,7 @@ int main(void)
             }
 
         //double the bet/ winnings
-        else if (rand() % 101 >= 74 && rand() % 101 <= 94)
+        else if ((rand() % 100) + 1 >= 74 && rand() % 101 <= 94)
             {
             balance += bet * 2;
             //printf("Reel stopped on the number: %d \n", rand() % 101);
@@ -130,7 +131,7 @@ int main(void)
             }
 
         //jackpot win the bet/winnings
-        else if (rand() % 101 >=95 && rand() % 101 <= 100)
+        else if ((rand() % 100) + 1 >=95 && rand() % 101 <= 100)
             {
             balance += bet * 3;
             //printf("Reel stopped on the number: %d \n", rand() % 101);
@@ -140,7 +141,7 @@ int main(void)
             }
 
         //if random number is less than 50 player losses the bet
-        else if (rand() % 101 < 50)
+        else if ((rand() % 100) + 1 < 50)
             {
             //lost your bet
             balance -= bet ;
@@ -148,19 +149,21 @@ int main(void)
             //printf("Reel stopped on the number: %d \n", rand() % 101);
             printf("You have %.2f quarters.\n", balance);
             //printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
-            continue;
             }
 
         //balance is 0 display you lose
-        else if (rand() % 101 < 50)
+        else 
             {
-            balance == 0;
+            //balance == 0;
             //printf("Reel stopped on the number: %d \n", rand() % 101);
-            printf("You lose!\n");
-            printf("You have %.2f quarters.\n", balance);
+            //printf("You lose!\n");
+            //printf("You have %.2f quarters.\n", balance);
+            continue;
             //printf("You have $%.2f worth of quarters.\n", dollars_left(balance));
             //end game
-            break;
             }
         }
-    }
+    if (balance == 0){
+        printf("You lose\n");
+        }
+}
