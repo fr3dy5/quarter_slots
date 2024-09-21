@@ -15,7 +15,7 @@ return (float)balance / 4;
 int main(void){
     printf("Welcome to the Betting Game!\n");
     printf("You have $20 worth of quarters.\n");
-    printf("You have 80 quarters ($20.00).\n");
+    //printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left);
 
     //make random number
     srand(time(NULL));
@@ -46,27 +46,31 @@ int main(void){
             //lost your bet
             balance -= bet ;
             printf("You lose\n");
-            printf("You have %.2f quarters.\n", balance);
+            //printf("You have %.2f quarters.\n", balance);
+            printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
         }
 
         //get your quarters back
         else if ((rand() % 100) + 1 >= 50 && (rand() % 100) + 1 <= 74){
             printf("You get your money back!\n");
-            printf("You have %.2f quarters.\n", balance);
+            //printf("You have %.2f quarters.\n", balance);
+            printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
         }
 
         //double the bet/ winnings
         else if ((rand() % 100) + 1 >= 75 && (rand() % 100) + 1 <= 94){
             balance += bet * 2;
             printf("You double your money!\n");
-            printf("You have %.2f quarters.\n", balance);
+            //printf("You have %.2f quarters.\n", balance);
+            printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
         }
 
         //jackpot win the bet/winnings
         else if ((rand() % 100) + 1 >= 95 && (rand() % 100) + 1 <= 100){
             balance += bet * 3;
             printf("Jackpot! You triple your money!\n");
-            printf("You have %.2f quarters.\n", balance);
+            //printf("You have %.2f quarters.\n", balance);
+            printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
         }
 
         else {
@@ -76,6 +80,7 @@ int main(void){
 
     if (balance == 0){
         printf("You lose\n");
+        printf("You have %d quarters ($%.2f).\n", (int)balance, (double)dollars_left(balance));
     }
 
 return 0;
