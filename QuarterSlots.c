@@ -27,6 +27,7 @@ int main(void){
         printf("Enter the number of quarters to bet (or 0 to cash out): \n");
         scanf("%d", &bet);
         printf("Reel stopped on the number: %d \n", (rand() % 100) + 1);
+        return 0;
 
         // if bet IS 0 cash out 
         if (bet == 0){
@@ -48,6 +49,7 @@ int main(void){
             printf("You lose\n");
             //printf("You have %.2f quarters.\n", balance);
             printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
+            return 0;
         }
 
         //get your quarters back
@@ -55,6 +57,7 @@ int main(void){
             printf("You get your money back!\n");
             //printf("You have %.2f quarters.\n", balance);
             printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
+            return 0;
         }
 
         //double the bet/ winnings
@@ -63,25 +66,23 @@ int main(void){
             printf("You double your money!\n");
             //printf("You have %.2f quarters.\n", balance);
             printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
+            return 0;
         }
 
         //jackpot win the bet/winnings
-        else if ((rand() % 100) + 1 >= 95 && (rand() % 100) + 1 <= 100){
+        else 
+            ((rand() % 100) + 1 >= 95 && (rand() % 100) + 1 <= 100);{
             balance += bet * 3;
             printf("Jackpot! You triple your money!\n");
             //printf("You have %.2f quarters.\n", balance);
             printf("You have %d quarters ($%.2f).\n", (int)balance, dollars_left(balance));
-        }
-
-        else {
-            continue;
-            }
+            return 0;
         }
 
     if (balance == 0){
         printf("You lose\n");
         printf("You have %d quarters ($%.2f).\n", (int)balance, (double)dollars_left(balance));
+        return 0;
     }
-
-return 0;
-}
+    }
+}    
